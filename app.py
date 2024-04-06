@@ -16,7 +16,7 @@ def doc_summary() :
 
 @app.route('/chat', methods=['POST'])
 def chatQA() :
-    query = request.args
+    query = request.json
     res = ChatbotModel.getAnswer(query['question'])
     return res
 
