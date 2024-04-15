@@ -42,7 +42,7 @@ jobs:
         aws-secret-access-key : ${{ secrets.CICD_PRIVATE_KEY }}
 
     - name: shell script chmod
-      run: chmod +x ./scripts/start.sh; chmod +x ./scripts/stop.sh; 
+      run: chmod +x ./scripts/deploy.sh;
 
     - name: upload on S3
       run: aws deploy push --application-name ${{ env.AWS_CODE_DEPLOY_APPLICATION }} --ignore-hidden-files --s3-location s3://$AWS_S3_BUCKET/cicdtest/$GITHUB_SHA.zip --source .
