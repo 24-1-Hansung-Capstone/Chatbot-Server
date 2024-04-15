@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   AWS_S3_BUCKET: cicd-flask
-  AWS_CODE_DEPLOY_APPLICATION: cicd-spring
+  AWS_CODE_DEPLOY_APPLICATION: cicd-flask
   AWS_CODE_DEPLOY_GROUP: cicd-group
   VENV_NAME: capstone
       
