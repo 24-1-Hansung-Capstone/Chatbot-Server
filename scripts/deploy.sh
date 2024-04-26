@@ -18,16 +18,16 @@ else
   sleep 5
 fi
 
-#echo "> Removing existing venv directory"
-#rm -rf $FLASK_APP_DIR/$VENVNAME
-#
-#echo "> Setting up new virtual environment"
-#pip install virtualenv
-#virtualenv $VENVNAME --python=python3.11.5
-#source $FLASK_APP_DIR/$VENVNAME/bin/activate
-#
-#echo "> Installing dependencies"
-#pip install -r $FLASK_APP_DIR/requirements.txt
+echo "> Removing existing venv directory"
+rm -rf $FLASK_APP_DIR/$VENVNAME
+
+echo "> Setting up new virtual environment"
+pip install virtualenv
+virtualenv $VENVNAME --python=python3.11.5
+source $FLASK_APP_DIR/$VENVNAME/bin/activate
+
+echo "> Installing dependencies"
+pip install -r $FLASK_APP_DIR/requirements.txt
 
 # Flask 앱 시작
 echo "> Starting Flask app"

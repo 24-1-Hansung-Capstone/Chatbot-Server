@@ -28,13 +28,13 @@ jobs:
       with:
         python-version: 3.11.5
 
-    - name: Install dependencies
-      run: |
-        python -m venv ${{ env.VENV_NAME }}
-        . ${{ env.VENV_NAME }}/bin/activate
-        pip install -r requirements.txt
+#    - name: Install dependencies
+#      run: |
+#        python -m venv ${{ env.VENV_NAME }}
+#        . ${{ env.VENV_NAME }}/bin/activate
+#        pip install -r requirements.txt
 
-    - name: setting AWS credetial
+    - name: setting AWS credential
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-region: ap-northeast-2
