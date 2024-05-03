@@ -6,6 +6,7 @@ model = BartForConditionalGeneration.from_pretrained("ainize/kobart-news")
 def summary(result : list[str]):
     summaryResult = []
     for res in result:
+        res = res[:1024]
         input_ids = tokenizer.encode(res, return_tensors="pt")
         # Generate Summary Text Ids
         summary_text_ids = model.generate(
