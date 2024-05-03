@@ -38,13 +38,14 @@ def doc_summary() :
     filtered_query = [*news_result[:5], *blog_result[:5]]
 
     print(f"filtered_query : {filtered_query}")
-    return make_response(
-        json.dumps(
-            DocumentSummaryModel.summary(filtered_query),
-            ensure_ascii=False,
-            indent=2
-        )
-    )
+    if len(filtered_query) == 0:
+        return ["검색결과가 없습니다."]
+    else :
+        return make_response(
+                json.dumps(
+                    DocumentSummaryModel.summary(filtered_query),
+                    ensure_ascii=False,
+                    indent=2))
 
 @app.route('/chat', methods=['POST'])
 def chatQA() :
