@@ -1,6 +1,10 @@
-from flask import Flask, jsonify, request
+# -- coding: utf-8 --
+import json
+
+from flask import Flask, jsonify, request, make_response
 from Model import *
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 summary = ""
 @app.route('/')
@@ -9,10 +13,19 @@ def indexPage():  # put application's code here
 
 @app.route('/docSummary', methods=['POST'])
 def doc_summary() :
-    query = request.args
-    res = DocumentSummaryModel.summary(query['query'])
-    summary = res
-    return res
+    query = request.json['result']
+    filtered_query = [
+        item['esDto']['mainBody']
+        for item in query
+        if 'esDto' in item and 'mainBody' in item['esDto']]
+    print(f"filtered_query : {filtered_query}")
+    return make_response(
+        json.dumps(
+            DocumentSummaryModel.summary(filtered_query[:7]),
+            ensure_ascii=False,
+            indent=2
+        )
+    )
 
 @app.route('/chat', methods=['POST'])
 def chatQA() :
