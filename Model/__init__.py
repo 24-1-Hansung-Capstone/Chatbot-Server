@@ -1,1 +1,1 @@
-__all__ = ['DocumentSummaryModel', 'ChatbotModel']
+__all__ = ['DocumentSummaryModel', 'SentimentalAnalysisModel']
