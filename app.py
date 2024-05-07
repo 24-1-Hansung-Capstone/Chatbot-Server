@@ -35,7 +35,7 @@ def doc_summary() :
            and 'mainBody' in item['esDto']
            and item['category'] == 'blog']
 
-    filtered_query = [*news_result[:5], *blog_result[:5]]
+    filtered_query = [*news_result[:2], *blog_result[:2]]
 
     print(f"filtered_query : {filtered_query}")
     if len(filtered_query) == 0:
@@ -59,4 +59,4 @@ def review_sentimental():
                     indent=2))
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5050)
+    app.run(host="0.0.0.0", port=5000)
