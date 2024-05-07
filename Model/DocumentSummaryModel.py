@@ -14,8 +14,8 @@ def summary(result : list[str]):
             bos_token_id=model.config.bos_token_id,
             eos_token_id=model.config.eos_token_id,
             length_penalty=2.0,
-            max_length=142,
-            min_length=56,
+            max_length=100,
+            min_length=30,
             num_beams=4,
             no_repeat_ngram_size=2
         )
