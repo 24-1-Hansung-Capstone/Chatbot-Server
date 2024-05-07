@@ -47,11 +47,7 @@ def doc_summary() :
                     ensure_ascii=False,
                     indent=2))
 
-@app.route('/chat', methods=['POST'])
-def chatQA() :
-    query = request.json
-    res = ChatbotModel.getAnswer(query['question'])
-    return res
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
