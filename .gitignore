@@ -9,3 +9,6 @@ capstone/
 
 # local
 test.py
+
+# Model file
+/**/*.pt
