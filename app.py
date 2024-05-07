@@ -50,8 +50,13 @@ def doc_summary() :
 @app.route('/sentimental', methods=['POST'])
 def review_sentimental():
     query = request.json['target']
-    print(f"query : {query}")
-    return str(SentimentalAnalysisModel.sentences_analysis([query]))
+    res = list(map(lambda x : float(x), SentimentalAnalysisModel.sentences_analysis([query])))
+    print(f"sentimental query : {query}")
+    print(f"sentimental score : {res}")
+    return make_response(
+                json.dumps(
+                    res,
+                    indent=2))
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5050)

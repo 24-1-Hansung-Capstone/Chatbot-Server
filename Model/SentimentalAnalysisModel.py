@@ -68,7 +68,9 @@ def sentences_analysis(sentences):
 
     # return np.argmax(tf.nn.softmax(logits))
     res = tf.nn.softmax(logits)
-    return (tuple(res.numpy()), np.argmax(res))
+    pos_neg = res.numpy().tolist()[0]
+    pos_neg.append(np.argmax(res))
+    return pos_neg
 
 if __name__ == "__main__":
     print(device)
