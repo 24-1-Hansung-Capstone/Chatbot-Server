@@ -1,8 +1,8 @@
 # -- coding: utf-8 --
 import json
-
 from flask import Flask, jsonify, request, make_response
 from Model import *
+
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
@@ -47,7 +47,11 @@ def doc_summary() :
                     ensure_ascii=False,
                     indent=2))
 
-
+@app.route('/sentimental', methods=['POST'])
+def review_sentimental():
+    query = request.json['target']
+    print(f"query : {query}")
+    return str(SentimentalAnalysisModel.sentences_analysis([query]))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host="0.0.0.0", port=5050)
