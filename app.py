@@ -2,6 +2,7 @@
 import json
 from flask import Flask, jsonify, request, make_response
 from Model import *
+import torch
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -9,7 +10,7 @@ app.config['JSON_AS_ASCII'] = False
 summary = ""
 @app.route('/')
 def indexPage():  # put application's code here
-    return '24-1 Hansung univ Capstone 찾아줘 홈즈 플라스크 서버'
+    return str(torch.cuda.is_available())
 
 @app.route('/docSummary', methods=['POST'])
 def doc_summary() :
